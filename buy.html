@@ -1,0 +1,112 @@
+<html>
+<head>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>      
+<link rel="stylesheet" type="text/css" href="shopping.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+</head>
+<body ng-app="myApp5" ng-controller="myCtrl5">
+    
+<nav class="navbar navbar-default navbar-fixed-top sticky-top">
+    <nav class="navbar navbar-expand-lg  navbar-fixed-top">
+    <div class="container-fluid" id="navB">
+    
+      <div class="row">
+      <div class="col-sm-6">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><div class="container"><img src="flipkart.png" id="logo"><b id="title">Flipkart</b>
+                        <input type="text" id="search"><button class="btn" id="sub">Search</button> </div></a>
+                </div></div>
+      <div class="col-sm-6">  
+    <ul class="nav navbar-nav">
+      <li><a href="#"><span id="cartLogo"><i class="fa fa-home"></i></span>Home</a></li>
+      <li><a href="#"><span id="cartLogo"><i class="fa fa-info"></i></span>About Us</a></li>
+      <li><a href="#"><span id="cartLogo"><i class="fa fa-phone"></i></span>Contact Us</a></li>
+      <li><a href="cart.html"><span id="cartLogo"><i class="fa fa-shopping-cart"></i></span>Cart</a></li>
+      <li ng-show="loginVal"><a href="user.html"><span id="cartLogo"><i class="fa fa-user"></i></span>Hi {{userData1.firstName}}</a></li>   
+    </ul>
+          
+   <button id="show" ng-show="!loginVal" ng-click="goToLogIn()" class="btn navbar-btn">Login</button>     
+    <button id="show" ng-show="loginVal" ng-click="goToLogIn()" class="btn navbar-btn">Logout</button>
+          
+        </div>
+      </div>
+</div>
+</nav>
+    </nav>
+<div class="container" style="padding: 40px;"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+            <h1 class="a-spacing-base" data-testid="">Select a delivery address</h1>
+            <p data-testid=""> Is the address you'd like to use displayed below? If so, click the corresponding "Deliver to this address" button.Or you can enter a new delivery address</p>
+            <hr style="border-spacing: 2px">
+<!--            <input type="text" ng-model="user.userId">-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" ng-repeat="userData in deliveryAddress1 track by $index " style="padding-bottom: 45px">
+                <div class="text1"><b>
+                {{userData.firstName}} {{userData.lastName}}
+                </b></div>
+                <div class="text2">
+                {{userData.streetAddress}}
+                </div>
+                <div class="text2">
+                {{userData.city}},{{userData.state}} {{userData.pincode}}
+                </div>
+                <div class="text2">
+                {{userData.country}}
+                </div>
+                <button class="del" style="margin-top: 20px" id="{{$index}}" ng-click="deliver()">Deliver to this address</button>
+            </div>
+<!--            <div class="col-lg-4">-->
+<!--                <button class="del" style="margin-top: 20px" id="{{$index}}" ng-click="deliver()">Deliver to this address</button>-->
+<!--                <button class="del" style="margin-top: 10px" ng-click="addAddress()">Add a new address</button>-->
+<!--            </div>-->
+        </div>
+        <div class="row">
+            <form>
+            <div class="col-lg-6">
+            <div class="form-group" style="border-radius: 0px;width:80%;margin: 70px 0px;">
+                                    <label style="padding-bottom: 10px">New Address : </label>
+                                    <div style="padding-bottom: 10px">
+                                        <input type="text" class="form-control" ng-model="firstName" style="border:1px solid lightgreen;border-radius: 0px" placeholder="Your First Name..." required />
+                                        </div>
+                                    <div style="padding-bottom: 10px">
+                                        <input type="text" class="form-control" ng-model="lastName" style="border:1px solid lightgreen;border-radius: 0px" placeholder="Your Last Name..." required />
+                                        </div>
+                                    <div style="padding-bottom: 10px">
+                                        <input type="text" class="form-control" ng-model="streetAddress" style="border:1px solid lightgreen;border-radius: 0px" placeholder="Street Address..." required />
+                                        </div>
+                                    <div style="padding-bottom: 10px">
+                                        <input type="text" class="form-control" ng-model="city" style="border:1px solid lightgreen;border-radius: 0px" placeholder="City..." required />
+                                        </div>
+                                    <div style="padding-bottom: 10px">
+                                        <input type="text" class="form-control" ng-model="state" style="border:1px solid lightgreen;border-radius: 0px" placeholder="State..." required />
+                                        </div>
+                                    <div style="padding-bottom: 10px">
+                                        <input type="text" class="form-control" ng-model="pincode" style="border:1px solid lightgreen;border-radius: 0px" placeholder="Pincode..." required />
+                                        </div>
+                                    <div style="padding-bottom: 10px">
+                                        <input type="text" class="form-control" ng-model="country" style="border:1px solid lightgreen;border-radius: 0px" placeholder="Country..." required />
+                                        </div>
+            </div> 
+            </div>
+            <div class="col-lg-6">
+                <button type="submit" class="del" style="margin-top: 220px" ng-click="newAddress()">Add This Address</button>
+            </div>
+                </form>
+        </div>
+    
+    </div>
+         
+    
+    <script src="buyController.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<html>
+<head>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>      
+<link rel="stylesheet" type="text/css" href="shopping.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+</head>
+<body ng-app="myApp4" ng-controller="myCtrl4">
+    
+<nav class="navbar navbar-default navbar-fixed-top sticky-top">
+    <nav class="navbar navbar-expand-lg  navbar-fixed-top">
+    <div class="container-fluid" id="navB">
+    
+      <div class="row">
+      <div class="col-sm-6">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><div class="container"><img src="flipkart.png" id="logo"><b id="title">yeswanth.shubham.shristi</b>
+                        <input type="text" id="search"><button class="btn" id="sub">Search</button> </div></a>
+                </div></div>
+      <div class="col-sm-6">  
+    <ul class="nav navbar-nav">
+      <li><a href="#"><span id="cartLogo"><i class="fa fa-home"></i></span>Home</a></li>
+      <li><a href="#"><span id="cartLogo"><i class="fa fa-info"></i></span>About Us</a></li>
+      <li><a href="#"><span id="cartLogo"><i class="fa fa-phone"></i></span>Contact Us</a></li>
+      <li><a href="cart.html"><span id="cartLogo"><i class="fa fa-shopping-cart"></i></span>Cart</a></li>    
+    </ul>
+          
+     <button id="show" ng-click="goToLogIn()" class="btn navbar-btn">Login</button>     
+<!--    <button id="show" ng-show="loginVal" ng-click="goToLogIn()" class="btn navbar-btn">Logout</button>-->
+          
+        </div>
+      </div>
+</div>
+</nav>
+    </nav>
+<div class="container" style="padding: 75px;"></div>
+    
+    <div class="modal-content" style="border-radius: 0px;width:80%;margin: 0px 150px;transform: translate(0px,-45px)">
+                        <div class="modal-header" >
+<!--
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+-->
+                            <div class="container-fluid" >
+                                <div class="row">
+                                    <div class="col-lg-12">
+                            <h3 class="modal-title" id="exampleModalLabel" style="font-size: 25px;text-align: center;margin: auto"><label>Enter your account details : </label></h3>
+                                    </div>
+                            
+                            </div></div></div>
+                        <form >
+                        <div class="modal-body" style="width: 80%;margin: auto">
+                            
+                                <div class="form-group">
+                                    <label>Full Name : </label>
+                                    <div style="" class="container"><div class="row">
+                                            <div class="col-lg-3"  style="padding: 0px 0px;width: 27%">
+                                                <input type="text" class="form-control" focus="true" ng-model="firstName"  style="border:1px solid lightgreen;border-radius: 0px" placeholder="Your first name..." required />
+                                            </div>
+                                            <div class="col-lg-3" style="width: 27%">
+                                                <input type="text" class="form-control" ng-model="middleName"  style="border:1px solid lightgreen;border-radius: 0px" placeholder="Your middle name..." required />
+                                            </div>
+                                            <div class="col-lg-3" style="width: 27.5%">
+                                                <input type="text" class="form-control" ng-model="lastName"  style="border:1px solid lightgreen;border-radius: 0px" placeholder="Your last name..." required />
+                                            </div>
+                                        </div></div>
+                                    </div>
+                                
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address : </label>
+                                    <div style="">
+                                        <input type="email" class="form-control" ng-model="emailId"  style="border:1px solid lightgreen;border-radius: 0px" aria-describedby="emailHelp" placeholder="Your email address..." required />
+                                    </div>
+                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                        
+                                    </div>
+                                
+                                <div class="form-group">
+                                    <label>Contact Number : </label>
+                                    <div style="">
+                                        <input type="text" class="form-control" ng-model="phoneNum" style="border:1px solid lightgreen;border-radius: 0px" aria-describedby="emailHelp" placeholder="Your contact number..." required />
+                                        </div>
+                                </div>
+                            
+                                <div class="form-group">
+                                    <label>Password : </label>
+                                    <div style="">
+                                        <input type="password" class="form-control" ng-model="password" style="border-radius:0px;border-color: chartreuse;border:1px solid lightgreen;" placeholder="Enter a password..." required />
+                                    </div></div>
+                                
+                               <div class="form-group">
+                                    <label>Address : </label>
+                                    <div style="">
+                                        <input type="text" class="form-control" ng-model="streetAddress" style="border:1px solid lightgreen;border-radius: 0px" placeholder="Street Address..." required />
+                                        </div>
+                                   <div class="container" style="padding-top: 12px"><div class="row">
+                                       <div class="col-lg-4" style="padding: 0px 0px;width: 40%">
+                                        <input type="text" class="form-control" ng-model="city" style="border:1px solid lightgreen;border-radius: 0px" placeholder="City..." required />
+                                       </div>
+                                       <div class="col-lg-4" style="width:41.8%">
+                                        <input type="text" class="form-control" ng-model="state" style="border:1px solid lightgreen;border-radius: 0px" placeholder="State..." required />
+                                       </div>
+                                    </div>
+                                    <div class="row" style="padding-top: 12px">
+                                        <div class="col-lg-4" style="padding: 0px 0px;width: 40%">
+                                        <input type="text" class="form-control" ng-model="pincode" style="border:1px solid lightgreen;border-radius: 0px" placeholder="Pincode..." required />
+                                       </div>
+                                       <div class="col-lg-4" style="width:41.8%">
+                                        <input type="text" class="form-control" ng-model="country" style="border:1px solid lightgreen;border-radius: 0px" placeholder="Country..." required />
+                                       </div>
+                                    </div>    
+                                    
+                                   </div>
+                                </div> 
+                                
+                                <div class="form-check">
+                                    <div style="">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="check" ng-model="botCheck" >
+                                        <span class="box"></span>
+                                        Check me out
+                                        </label>
+                                    </div></div>
+                           
+                            </div> 
+                            
+                        <div class="modal-footer" style="text-align: center;width : 80%;margin: auto">
+                                <button type="submit" id="buyButt" style="background: #01D486;" ng-click="details()" ng-model="signUp" class="btn btn-secondary">Sign Up</button>
+                                <button type="button"  id="buyButt" style="background: #01D486;" ng-click="validate()" ng-model="logIn" class="btn">Log In</button>
+                                                    
+                                </div>
+                            </form>
+                    </div>
+    
+       
+    <script src="registerController.js"></script>
+</body>
+</html>

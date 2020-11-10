@@ -1,0 +1,114 @@
+<html>
+<head>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>      
+<link rel="stylesheet" type="text/css" href="shopping.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+</head>
+<body ng-app="myApp6" ng-controller="myCtrl6">
+    
+<nav class="navbar navbar-default navbar-fixed-top sticky-top">
+    <nav class="navbar navbar-expand-lg  navbar-fixed-top">
+    <div class="container-fluid" id="navB">
+    
+      <div class="row">
+      <div class="col-sm-6">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><div class="container"><img src="flipkart.png" id="logo"><b id="title">Flipkart</b>
+                        <input type="text" id="search"><button class="btn" id="sub">Search</button> </div></a>
+                </div></div>
+      <div class="col-sm-6">  
+    <ul class="nav navbar-nav">
+      <li><a href="#"><span id="cartLogo"><i class="fa fa-home"></i></span>Home</a></li>
+      <li><a href="#"><span id="cartLogo"><i class="fa fa-info"></i></span>About Us</a></li>
+      <li><a href="#"><span id="cartLogo"><i class="fa fa-phone"></i></span>Contact Us</a></li>
+      <li ng-show="loginVal"><a href="user.html"><span id="cartLogo"><i class="fa fa-user"></i></span>Hi {{userData1.firstName}}</a></li>   
+    </ul>
+          
+    <button id="show" ng-show="!loginVal" ng-click="goToLogIn()" class="btn navbar-btn">Login</button>     
+    <button id="show" ng-show="loginVal" ng-click="goToLogIn()" class="btn navbar-btn">Logout</button>
+          
+        </div>
+      </div>
+</div>
+</nav>
+    </nav>
+<div class="container" style="padding: 40px;"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-7">
+                <h4 style="text-align: left;padding-left: 150px;padding-bottom: 30px" class="a-spacing-base" data-testid=""><b>Below shown items will be delivered at the given address : </b></h4>
+            </div>
+            <div class="col-lg-5">
+            <h4><b>Delivery Address : </b></h4>
+            </div>
+        </div>
+        <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-5">
+    <table id="cartTable">
+                            <tr>
+                                <th id="cartHead">Name</th>
+                                <th id="cartHead">Color</th>
+                                <th id="cartHead">Price</th>
+                                <th id="cartHead">Quantity</th>
+                                <th id="cartHead">Sub-Total</th>
+                            </tr>
+                            <tr ng-repeat="item in cartArray">
+                            <td id="cartHead">{{item.name}}</td>
+                            <td id="cartHead">{{item.color}}</td>
+                            <td id="cartHead">${{item.price}}</td>
+                            <td id="cartHead">{{item.quantity}}</td>
+                            <td id="cartHead">${{item.price*item.quantity}}</td>
+                            </tr>
+                            <tr>
+                                <td id="cartHead" style=""><strong><b>Total</b></strong></td>
+                                <td id="cartHead"></td>
+                                <td id="cartHead"></td>
+                                <td id="cartHead"></td>
+                                <td id="cartHead"><b>${{getTotal()}}</b></td>
+                            </tr>
+                            </table>
+            </div>
+            <div class="col-lg-1"></div>
+        <div class="col-lg-5">
+            <div class="container-fluid" style="padding-top: 0px;padding-left: 30px;font-size: 16px">
+                
+            <div class="row">
+                <b>{{deliveryDetails[len].firstName}} {{deliveryDetails[len].lastName}}</b>
+            </div>
+            <div class="row">
+                {{deliveryDetails[len].streetAddress}}
+            </div>
+            <div class="row">
+                {{deliveryDetails[len].city}},{{deliveryDetails[len].state}} {{deliveryDetails[len].pincode}}
+            </div>
+            <div class="row">
+                {{deliveryDetails[len].country}}
+            </div>
+            <div class="row">    
+            {{deliveryDetails[len].phoneNum}}
+            </div>
+        </div>
+        </div>
+    </div>
+        <div class="row"><div class="container" style="padding: 20px"></div></div>
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8" style="text-align: right">
+                <button id="buyButt1" ng-click="goToProd()">< CONTINUE SHOPPING</button>
+                <button id="buyButt" ng-click="goToPay()">GO TO PAYMENT SITE ></button></div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                
+            </div>
+        </div>
+    </div>
+    
+    
+ <script src="purchasedController.js"></script>
+</body>
+</html>

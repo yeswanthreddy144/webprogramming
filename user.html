@@ -1,0 +1,245 @@
+<html>
+<head>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>      
+<link rel="stylesheet" type="text/css" href="shopping.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+</head>
+<body ng-app="myApp6" ng-controller="myCtrl6" style="font-family: Arial, Helvetica, sans-serif;">
+    
+<nav class="navbar navbar-default navbar-fixed-top sticky-top">
+    <nav class="navbar navbar-expand-lg  navbar-fixed-top">
+    <div class="container-fluid" id="navB">
+    
+      <div class="row">
+      <div class="col-sm-6">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><div class="container"><img src="flipkart.png" id="logo"><b id="title">Flipkart</b>
+                        <input type="text" id="search"><button class="btn" id="sub">Search</button> </div></a>
+                </div></div>
+      <div class="col-sm-6">  
+    <ul class="nav navbar-nav">
+      <li><a href="#"><span id="cartLogo"><i class="fa fa-home"></i></span>Home</a></li>
+      <li><a href="#"><span id="cartLogo"><i class="fa fa-info"></i></span>About Us</a></li>
+      <li><a href="#"><span id="cartLogo"><i class="fa fa-phone"></i></span>Contact Us</a></li>
+      <li><a href="cart.html"><span id="cartLogo"><i class="fa fa-shopping-cart"></i></span>Cart</a></li>
+      <li ng-show="loginVal"><a href="user.html"><span id="cartLogo"><i class="fa fa-user"></i></span>Hi {{userData1.firstName}}</a></li>   
+    </ul>
+          
+   <button id="show" ng-show="!loginVal" ng-click="goToLogIn()" class="btn navbar-btn">Login</button>     
+    <button id="show" ng-show="loginVal" ng-click="goToLogIn()" class="btn navbar-btn">Logout</button>
+          
+        </div>
+      </div>
+</div>
+</nav>
+    </nav>
+<div class="container" style="padding: 40px;"></div>
+    <div class="container-fluid">
+        <div class="row" style="padding: 15px 250px">
+<!--            <div class="col-lg-1"></div>-->
+            <div class="col-lg-4">   
+                <div class="container-fluid aksh" ng-click="orderDetails()" style="border: 1px #e7e7e7 solid;padding: 14px 18px;"><div class="row">
+                        <div class="col-lg-2"><img src="box.png" style="height: 52px; width: 58px;padding: 5px"></div>
+                        <div class="col-lg-10"><div class="container-fluid">
+                            <div class="row"><div class="col-lg-12"><b style="font-size: 17px">Your Orders</b></div></div>
+                            <div class="row" style="font-size: 13px"><div class="col-lg-12">Track,return, or buy things again</div></div>
+                            </div></div>
+                    </div></div>
+            </div>
+<!--            <div class="col-lg-1"></div>-->
+            <div class="col-lg-4">
+                <div class="container-fluid aksh" ng-click="userDetails()"  style="border: 1px #e7e7e7 solid;padding: 14px 18px;"><div class="row">
+                        <div class="col-lg-2"><img src="lock.png" style="height: 52px; width: 58px;padding: 5px"></div>
+                        <div class="col-lg-10"><div class="container-fluid">
+                            <div class="row"><div class="col-lg-12"><b style="font-size: 17px">Login and Security</b></div></div>
+                            <div class="row" style="font-size: 13px"><div class="col-lg-12">Edit login, name, and mobile number</div></div>
+                            </div></div>
+                    </div></div>
+            </div>
+<!--            <div class="col-lg-1"></div>-->
+            <div class="col-lg-4">
+                <div class="container-fluid aksh" ng-click="locDetails()" style="border: 1px #e7e7e7 solid;padding: 14px 18px;"><div class="row">
+                        <div class="col-lg-2"><img src="address.png" style="height: 52px; width: 58px;padding: 5px"></div>
+                        <div class="col-lg-10"><div class="container-fluid">
+                            <div class="row"><div class="col-lg-12"><b style="font-size: 17px">Your Addresses</b></div></div>
+                            <div class="row" style="font-size: 13px"><div class="col-lg-12">Edit addresses for orders and gifts</div></div>
+                            </div></div>
+                    </div></div>
+            </div>
+<!--            <div class="col-lg-2"></div>-->
+        </div>
+        <div class="row" style="padding: 15px 250px">
+<!--            <div class="col-lg-1"></div>-->
+            <div class="col-lg-4">   
+                <div class="container-fluid aksh" style="border: 1px #e7e7e7 solid;padding: 14px 18px;"><div class="row">
+                        <div class="col-lg-2"><img src="prime.png" style="height: 52px; width: 58px;padding: 5px"></div>
+                        <div class="col-lg-10"><div class="container-fluid">
+                            <div class="row"><div class="col-lg-12"><b style="font-size: 17px">Prime</b></div></div>
+                            <div class="row" style="font-size: 13px"><div class="col-lg-12">View benefits and payment settings</div></div>
+                            </div></div>
+                    </div></div>
+            </div>
+<!--            <div class="col-lg-1"></div>-->
+            <div class="col-lg-4">
+                <div class="container-fluid aksh" style="border: 1px #e7e7e7 solid;padding: 14px 18px;"><div class="row">
+                        <div class="col-lg-2"><img src="paisa.png" style="height: 52px; width: 58px;padding: 5px"></div>
+                        <div class="col-lg-10"><div class="container-fluid">
+                            <div class="row"><div class="col-lg-12"><b style="font-size: 17px">Payment Options</b></div></div>
+                            <div class="row" style="font-size: 13px"><div class="col-lg-12">Edit or add payment methods</div></div>
+                            </div></div>
+                    </div></div>
+            </div>
+<!--            <div class="col-lg-1"></div>-->
+            <div class="col-lg-4">
+                <div class="container-fluid aksh" style="border: 1px #e7e7e7 solid;padding: 14px 18px;"><div class="row">
+                        <div class="col-lg-2"><img src="bal.png" style="height: 52px; width: 58px;padding: 5px"></div>
+                        <div class="col-lg-10"><div class="container-fluid">
+                            <div class="row"><div class="col-lg-12"><b style="font-size: 17px">Pay Balance</b></div></div>
+                            <div class="row" style="font-size: 13px"><div class="col-lg-12">Add money to your balance</div></div>
+                            </div></div>
+                    </div></div>
+            </div>
+<!--            <div class="col-lg-2"></div>-->
+        </div>
+        <div class="row" style="padding: 80px 250px;">
+            
+          
+            <div class="container-fluid" ng-show="orderDet" style="border: 1px #e5e5e5 solid"><div class="row">
+                <div class="col-lg-12">
+            <h2 style="text-align:center;padding-bottom: 25px"><b>Your Orders</b></h2>
+        <table id="cartTable">
+                            <tr>
+                                <th id="cartHead">Name</th>
+                                <th id="cartHead">Color</th>
+                                <th id="cartHead">Price</th>
+                                <th id="cartHead">Quantity</th>
+                                <th id="cartHead">Sub-Total</th>
+                            </tr>
+                            <tr ng-repeat="item in cartArray">
+                            <td id="cartHead">{{item.name}}</td>
+                            <td id="cartHead">{{item.color}}</td>
+                            <td id="cartHead">${{item.price}}</td>
+                            <td id="cartHead">{{item.quantity}}</td>
+                            <td id="cartHead">${{item.price*item.quantity}}</td>
+                            </tr>
+                            <tr>
+                                <td id="cartHead" style=""><strong><b>Total</b></strong></td>
+                                <td id="cartHead"></td>
+                                <td id="cartHead"></td>
+                                <td id="cartHead"></td>
+                                <td id="cartHead"><b>${{getTotal()}}</b></td>
+                            </tr>
+                            </table>
+                </div></div>
+                </div>
+<!--            <div class="col-lg-4"></div>-->
+<!--            <div class="col-lg-4">  -->
+            <div class="container-fluid" ng-show="userDet" style="border: 1px #e5e5e5 solid"><div class="row">
+                
+                
+<!--            <h2 style="text-align:center;padding-bottom: 25px"><b>User Details</b></h2>-->
+                    <div class="container-fluid">
+                        <div class="row" style="font-size: 15px;padding-top: 30px;padding-bottom: 50px;border-bottom: 1px #e5e5e5 solid;">
+                        <div class="col-lg-3">
+                            <div class="container-fluid">
+                                <div class="row"><b>Name:</b></div>
+                                <div class="row">{{userData1.firstName}} {{userData1.middleName}} {{userData1.lastName}}</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6"></div>
+                        <div class="col-lg-3">
+                            <button class="btn btn-secondary" style="margin-left:100px ">Edit</button>    
+                        </div>
+                        </div>
+                        
+                        <div class="row" style="font-size: 15px;padding-top: 30px;padding-bottom: 50px;border-bottom: 1px #e5e5e5 solid;">
+                        <div class="col-lg-3">
+                            <div class="container-fluid">
+                                <div class="row"><b>E-mail:</b></div>
+                                <div class="row">{{userData1.emailId}}</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6"></div>
+                        <div class="col-lg-3">
+                            <button class="btn btn-secondary" style="margin-left:100px ">Edit</button>    
+                        </div>
+                        </div>
+                       
+                        <div class="row" style="font-size: 15px;padding-top: 30px;padding-bottom: 50px;border-bottom: 1px #e5e5e5 solid;">
+                        <div class="col-lg-3">
+                            <div class="container-fluid">
+                                <div class="row"><b>Mobile Phone Number:</b></div>
+                                <div class="row">+91 {{userData1.phoneNum}}</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6"></div>
+                        <div class="col-lg-3">
+                            <button class="btn btn-secondary" style="margin-left:100px ">Edit</button>    
+                        </div>
+                       
+                        </div>
+                        
+                        <div class="row" style="font-size: 15px;padding-top: 30px;padding-bottom: 50px;border-bottom: 1px #e5e5e5 solid;">
+                        <div class="col-lg-3">
+                            <div class="container-fluid">
+                                <div class="row"><b>Password:</b></div>
+                                <div class="row">{{userData1.password}}</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6"></div>
+                        <div class="col-lg-3">
+                            <button class="btn btn-secondary" style="margin-left:100px ">Edit</button>    
+                        </div>
+                       
+                        </div>
+                        
+                </div>
+               
+               
+                </div>
+                </div>
+            
+<!--
+            </div> 
+             <div class="col-lg-4"></div>
+-->
+        </div>
+            <div class="row" style="padding: 30px 250px;">
+            <div class="container-fluid" ng-show="locDet" ><div class="row">
+                    <div class="container-fluid">
+                        <div class="row" style="font-size: 15px;padding-top: 0px;padding-bottom: 50px;border-bottom: 1px #e5e5e5 solid;margin-top: 30px">
+                        <div class="col-lg-4" ng-repeat="userData in deliveryAddress track by $index " style="padding: 15px 35px;border: 1px #e5e5e5 solid">
+                <div class="text1"><b>
+                {{userData.firstName}} {{userData.lastName}}
+                </b></div>
+                <div class="text2">
+                {{userData.streetAddress}}
+                </div>
+                <div class="text2">
+                {{userData.city}},{{userData.state}} {{userData.pincode}}
+                </div>
+                <div class="text2">
+                {{userData.country}}
+                </div>
+                <button class="btn btn-secondary" style="margin-top: 20px" id="{{$index}}" >Edit</button>
+            </div> 
+        
+                        </div></div></div></div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+       
+    
+    <script src="userController.js"></script>
+</body>
+</html>
